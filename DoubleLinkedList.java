@@ -94,19 +94,54 @@ public class DoubleLinkedList<T> implements List{
     }
     
 
-    public boolean addContact(T val)
+    public boolean addContact(T element)
     {
+        int compareResult;
+        // Contact contact = (Contact) element;
+            // contact.getContactName();
         while(current!=null)
         {
-            current.data.getContactName
+            // return this.contactName.compareTo(other.getContactName());
+  
+            compareResult= ((Contact)(current.data)).compareTo(element);
+            // integer depending on whether the current contact's name is less than, equal to, or greater than the contact name of the object being compared.
+            Node<T> tmp=new Node<T> (element);
+
+            if(compareResult==0)//i did it in the Contact class
+                return false;
+            else if(compareResult<0)
+            {
+                //add befor the current
+                //need to be check other situations
+                tmp.next=current;
+                tmp.previous=current.previous;
+                if(current.previous!=null)
+                current.previous.next=tmp;
+                current.previous=tmp;
+                current=tmp;
+            }
+            else if(compareResult>0)
+            {
+                //add after the current
+                //need to be check other situations && if =0 , add it after ot befor
+                tmp.next=current.next;
+                tmp.previous=current;
+                if(current.next!=null)
+                    current.next.previous=tmp;
+                current.next=tmp;
+                current=tmp;
+            }
+
+
             current=current.next;
         }
+        return true;
     } 
     public boolean addEvent(Event event)
     {
         //check schedule
         if(!true)
-        event.getDate();
+        // event.d<Contact>.getDate();
         else
         {
             Node<T> tmp=new Node<T> (event);

@@ -7,7 +7,7 @@
 // that have these values
 
 //implements Comparable
-public class Contact {
+public class Contact implements Comparable{
     private String contactName;
     //phone number string or int?
     private String phoneNumber;
@@ -29,39 +29,32 @@ public class Contact {
         this.notes=notes;
     }
 
-
     public String getContactName() {
         return contactName;
-    }
-    public void setContactName(String contactName) {
-        this.contactName = contactName;
-    }
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
     }
     public String getEmailAddress() {
         return emailAddress;
     }
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
     public String getAddress() {
         return address;
-    }
-    public void setAddress(String address) {
-        this.address = address;
     }
     public String getBirthday() {
         return birthday;
     }
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
     public String getNotes() {
         return notes;
     }
-    public void setNotes(String notes) {
-        this.notes = notes;
+    @Override
+    public int compareTo(Object o) {
+        //is it just this line ???
+        int a,b;
+        a= this.contactName.compareTo(((Contact)(o)).getContactName());
+        b= this.contactName.compareTo(((Contact)(o)).getContactName());
+        return(a*b);//AND operator
+
     }
     
 }
