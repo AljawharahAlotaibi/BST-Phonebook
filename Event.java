@@ -11,10 +11,15 @@ public class Event<T> {
     private String location;
     private T contact;
 
-    public Event()
+    public Event(Event event)
     {
+        this.eventTitle = event.eventTitle;
+        this.date=event.date;
+        this.time=event.time;
+        this.location=event.location;
+    } 
 
-    }
+    
     public Event(String eventTitle,String date,String time,String location,T contact)
     {
         this.eventTitle=eventTitle;
@@ -35,5 +40,32 @@ public class Event<T> {
     
     public void eventAvailable()
     {}
+
+
+    public String getEventTitle() {
+        return eventTitle;
+    }
+
+
+    public String getDate() {
+        return date;
+    }
+
+
+    public String getTime() {
+        return time;
+    }
+
+
+    public String getLocation() {
+        return location;
+    }
+
+
+    public T getContact() {
+        return contact;
+    }
+
+
 
 }
