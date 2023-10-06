@@ -72,6 +72,8 @@ public class DoubleLinkedList<T> implements List{
     public void search(T val){
 
     }
+
+    //Layan tst
     //deleting contact need to reWrite
     public void remove(){
         if(current == head)
