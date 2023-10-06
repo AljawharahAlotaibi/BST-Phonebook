@@ -128,9 +128,19 @@ public boolean addEvent(T event)
 // When you search for a contact by email address, address, or birthday, you should return all contacts
 // that have these values
 // the search for an event is based on the event title or contact name
-    public void search(T val){
-
+     public DoubleLinkedList<Contact> searchContact(String searchchoice){
+    DoubleLinkedList<Contact> resultList = new DoubleLinkedList<Contact>();
+    findFirst();
+    while(current!=null){
+        if(((Contact)(current.data)).getAddress().equalsIgnoreCase(searchchoice)||
+        ((Contact)(current.data)).getEmailAddress().equalsIgnoreCase(searchchoice)||
+        ((Contact)(current.data)).getBirthday().equalsIgnoreCase(searchchoice))//check the brackets here!!!!
+       resultList.addContact((Contact)(current.data));
+       current = current.next;
+      }
+       return resultList;
     }
+
 
     //Layan tst
     //deleting contact need to reWrite
