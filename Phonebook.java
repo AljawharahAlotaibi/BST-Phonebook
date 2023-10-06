@@ -7,12 +7,29 @@
 //Is it in the phone book as user or in the contact as implementer?
 // • When you search for a contact by email address, address, or birthday, you should return all contacts
 // that have these values
+
 public class Phonebook {
-    DoubleLinkedList field;
     public static void main(String[]args)
     {
+        
+    DoubleLinkedList<Contact> contactList = new DoubleLinkedList<>();
+    // Create some test contacts
+    Contact contact1 = new Contact("John Doe", "1234567890", "john.doe@example.com", "123 Main St", "1990-01-01", "Some notes about John");
+    Contact contact2 = new Contact("Saud moh", "9876543210", "jane.smith@example.com", "456 Elm St", "1985-05-10", "Some notes about Jane");
+    Contact contact3 = new Contact("Alice Johnson", "9876543210", "alice.johnson@example.com", "789 Oak St", "1998-12-25", "Some notes about Alice");
+    Contact contact4 = new Contact("John Doe", "1111111111", "bob.williams@example.com", "321 Pine St", "1977-09-15", "Some notes about Bob");
+
+    // Test the addElement method
+    contactList.addElement(contact1);
+    contactList.addElement(contact2);
+    contactList.addElement(contact3);
+    contactList.addElement(contact4);
+
+    // Print the contents of the contact list
+    contactList.printList();
 
     }
+
 
 //printing all contacts that share an event as well as all
 // contacts that share the first name.

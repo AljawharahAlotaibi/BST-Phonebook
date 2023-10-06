@@ -48,13 +48,8 @@ public class Contact implements Comparable{
         return notes;
     }
     @Override
-    public int compareTo(Object o) {
-        //is it just this line ???
-        int a,b;
-        a= this.contactName.compareTo(((Contact)(o)).getContactName());
-        b= this.contactName.compareTo(((Contact)(o)).getContactName());
-        return(a*b);//AND operator
-
+    public int compareTo(Object contact) {
+        return this.contactName.compareTo(((Contact) contact).getContactName());
     }
-    
 }
+
