@@ -131,6 +131,8 @@ public boolean addEvent(T event)
     public void search(T val){
 
     }
+
+    //Layan tst
     //deleting contact need to reWrite
     public void remove(){
         if(current == head)
