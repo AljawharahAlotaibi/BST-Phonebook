@@ -4,12 +4,12 @@
 // When a contact is deleted all events with that contact are also deleted.
 
 // Write a method that will list all events available ordered alphabetically by event name in O(n) time
-public class Event<T> {
+public class Event {
     private String eventTitle;
     private String date;
     private String time;
     private String location;
-    private T contact;
+    private Contact contact;
 
     public Event(Event event)
     {
@@ -62,11 +62,12 @@ public class Event<T> {
     }
 
 
-    public T getContact() {
+    public Contact getContact() {
         return contact;
     }
 
 
 
 }
+
 
