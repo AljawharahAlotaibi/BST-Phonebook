@@ -36,10 +36,6 @@ Scanner input = new Scanner(System.in);
                 break;
 
                 case 3:
-                System.out.println("Enter name: ");
-                String name = input.nextLine();
-                DoubleLinkedList.remove(name);
-
                 break;
 
                 case 4:
