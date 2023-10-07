@@ -116,16 +116,12 @@ public DoubleLinkedList<Contact> searchContact(String searchchoice){
             current=head;
         else
             current=current.next;
-
+            
+             //Now after deleting the Contact, we should delete the contact's event (event list)
              current.removeEvents((Contact)(current.data));
              System.out.println(name + " was deleted successfully ");
-
-             //Now after deleting the Contact we should delete the contact's event (event list)
-
-             
              return; 
         }
-
         current=current.next;
         }
             System.out.println(" Contact not found ");
@@ -137,6 +133,8 @@ public DoubleLinkedList<Contact> searchContact(String searchchoice){
 
     public void removeEvents(Contact contact){
         contact.getEventsList().head = null;
+        contact.getEventsList().current = null;
+
     }
 
 
