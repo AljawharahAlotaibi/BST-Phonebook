@@ -144,8 +144,14 @@ public boolean addEvent(T event)
 
     //Layan tst
     //deleting contact need to reWrite
-    public void remove(){
-        if(current == head)
+     //deleting contact need to reWrite
+    public void remove(String name){
+        //When a contact is deleted all events with that contact are also deleted
+      current = head ;
+        while(current!=null){
+        if(((Contact)(current.data)).getContactName().equalsIgnoreCase(name)){
+             current.previous.next=current.next;
+             if(current == head)
         {
             head=head.next;
             if(head !=null)
@@ -162,24 +168,92 @@ public boolean addEvent(T event)
             current=head;
         else
             current=current.next;
-    }
 
-    public Node<T> getHead() {
-        return head;
-    }
+             current.removeEvents((Contact)(current.data));
+             System.out.println(name + " was deleted successfully ");
 
-    public Node<T> getCurrent() {
-        return current;
-    } 
+             //Now after deleting the Contact we should delete the contact's event (event list)
 
-    public void printList() {
-        findFirst();
-        while (current != null) {
-            Contact contact = (Contact) current.data;
-            System.out.println("Contact: " + contact.getContactName());
-            System.out.println("Phone Number: " + contact.getPhoneNumber());
-            System.out.println();
-            current = current.next;
+             
+             return; 
         }
+
+        current=current.next;
+        }
+            System.out.println(" Contact not found ");
+
+       }
+
+   
+
+
+    public void removeEvents(Contact contact){
+        contact.getEventsList().head = null;
     }
+
+
+    public boolean addContact(T element)
+    {
+        int compareResult;
+        // Contact contact = (Contact) element;
+            // contact.getContactName();
+        while(current!=null)
+        {
+            // return this.contactName.compareTo(other.getContactName());
+  
+            compareResult= ((Contact)(current.data)).compareTo(element);
+            // integer depending on whether the current contact's name is less than, equal to, or greater than the contact name of the object being compared.
+            Node<T> tmp=new Node<T> (element);
+
+            if(compareResult==0)//i did it in the Contact class
+                return false;
+            else if(compareResult<0)
+            {
+                //add befor the current
+                //need to be check other situations
+                tmp.next=current;
+                tmp.previous=current.previous;
+                if(current.previous!=null)
+                current.previous.next=tmp;
+                current.previous=tmp;
+                current=tmp;
+            }
+            else if(compareResult>0)
+            {
+                //add after the current
+                //need to be check other situations && if =0 , add it after ot befor
+                tmp.next=current.next;
+                tmp.previous=current;
+                if(current.next!=null)
+                    current.next.previous=tmp;
+                current.next=tmp;
+                current=tmp;
+            }
+
+
+            current=current.next;
+        }
+        return true;
+    } 
+    public boolean addEvent(Event event)
+    {
+        //check schedule
+        if(!true)
+        // event.d<Contact>.getDate();
+        else
+        {
+            Node<T> tmp=new Node<T> (event);
+                if(empty()){
+                    head=current=tmp;
+                }
+                else{
+                    tmp.next=current.next;
+                    tmp.previous=current;
+                    if(current.next != null)
+                        current.next.previous=tmp;
+                    current.next=tmp;
+                    current=tmp;
+                }   
+        }
+    }   
 }
