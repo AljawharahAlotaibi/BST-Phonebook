@@ -8,9 +8,56 @@
 // • When you search for a contact by email address, address, or birthday, you should return all contacts
 // that have these values
 
+import java.util.Scanner;
 public class Phonebook {
     public static void main(String[]args)
     {
+Scanner input = new Scanner(System.in);
+        System.out.println("Welcome to the Linked Tree Phonebook!\r\n" + //
+                "Please choose an option:\r\n" + //
+                "1. Add a contact\r\n" + //
+                "2. Search for a contact\r\n" + //
+                "3. Delete a contact\r\n" + //
+                "4. Schedule an event\r\n" + //
+                "5. Print event details\r\n" + //
+                "6. Print contacts by first name\r\n" + //
+                "7. Print all events alphabetically\r\n" + //
+                "8. Exit");
+
+                System.out.println("Enter your choice: ");
+                int choice = input.nextInt(); 
+        
+                switch(choice){
+
+                case 1:
+                break;
+
+                case 2:
+                break;
+
+                case 3:
+                System.out.println("Enter name: ");
+                String name = input.nextLine();
+                DoubleLinkedList.remove(name);
+
+                break;
+
+                case 4:
+                break;
+
+                case 5:
+                break;
+
+                case 6:
+                break;
+                
+                case 7:
+                break;
+
+                case 8:
+                break;
+
+                }
         
     DoubleLinkedList<Contact> contactList = new DoubleLinkedList<>();
     // Create some test contacts
@@ -29,6 +76,8 @@ public class Phonebook {
     contactList.printList();
 
     }
+
+
 
 
 //printing all contacts that share an event as well as all
