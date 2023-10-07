@@ -15,15 +15,15 @@ public class Phonebook {
     public static void main(String[]args)
     {
         Scanner input = new Scanner(System.in);
-        System.out.println("Welcome to the Linked Tree Phonebook!\r\n" + //
-                "Please choose an option:\r\n" + //
-                "1. Add a contact\r\n" + //
-                "2. Search for a contact\r\n" + //
-                "3. Delete a contact\r\n" + //
-                "4. Schedule an event\r\n" + //
-                "5. Print event details\r\n" + //
-                "6. Print contacts by first name\r\n" + //
-                "7. Print all events alphabetically\r\n" + //
+       System.out.println("Welcome to the Linked Tree Phonebook!\r\n" + 
+                "Please choose an option:\r\n" + 
+                "1. Add a contact\r\n" + 
+                "2. Search for a contact\r\n" + 
+                "3. Delete a contact\r\n" +
+                "4. Schedule an event\r\n" + 
+                "5. Print event details\r\n" + 
+                "6. Print contacts by first name\r\n" + 
+                "7. Print all events alphabetically\r\n" + 
                 "8. Exit");
 
                 System.out.println("Enter your choice: ");
