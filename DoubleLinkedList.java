@@ -83,14 +83,25 @@ public DoubleLinkedList<Contact> searchContact(String searchchoice){
     while(current!=null){
         if(((Contact)(current.data)).getAddress().equalsIgnoreCase(searchchoice)||
         ((Contact)(current.data)).getEmailAddress().equalsIgnoreCase(searchchoice)||
-        ((Contact)(current.data)).getBirthday().equalsIgnoreCase(searchchoice))//check the brackets here!!!!
+        ((Contact)(current.data)).getBirthday().equalsIgnoreCase(searchchoice) ||
+           ((Contact)(current.data)).getContactName().equalsIgnoreCase(searchchoice)||
+        ((Contact)(current.data)).getPhoneNumber().equalsIgnoreCase(searchchoice))//check the brackets here!!!!
        resultList.addContact((Contact)(current.data));
        current = current.next;
       }
        return resultList;
     }
-
-
+    //This method is called by the total events list in PhoneBook 
+    public void searchEvent(String criteriaChoise){
+         DoubleLinkedList<Events> resultList = new DoubleLinkedList<Events>();
+           findFirst();
+    while(current!=null){
+if(((Event)(current.data)).getContactName().equalsIgnoreCase(criteriaChoise)||
+        ((Event)(current.data)).getEventTitle().equalsIgnoreCase(criteriaChoise))
+    resultList.addEvent();
+        current = current.next; }
+       resultList.print();//call a method that prints a list of events
+        }
     
     //deleting contact need to reWrite
     public void remove(String name){
