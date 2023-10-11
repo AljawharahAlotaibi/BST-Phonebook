@@ -58,10 +58,13 @@ public class Phonebook {
                 case 3:
                 System.out.println("Enter name: ");
                 String name = input.nextLine();
-                contactList.remove(name);
+                Contact removedContact =contactList.remove(name);
+                removeEvents(removedContact);
+
                 //test example
-                contactList.remove("Alice Johnson");
-                
+                Contact removedContact2 = contactList.remove("Alice Johnson");
+                removeEvents(removedContact2);
+
                 break;
 
                 case 4:
@@ -97,6 +100,38 @@ public class Phonebook {
     {
         
     }
+
+    public static void removeEvents(Contact contact){
+
+
+       allEventsList.findFirst();        
+              
+                 while( allEventsList.getCurrent()!=null){
+                 if(allEventsList.getCurrent().getData().getContact().getContactName().equalsIgnoreCase(contact.getContactName())){
+                      if(allEventsList.getCurrent() == allEventsList.getHead())
+                 {
+                     allEventsList.setHead(allEventsList.getHead().next);
+                     if(allEventsList.getHead() !=null)
+                         allEventsList.getHead().previous=null;
+                 }
+                 else
+                 {
+                     allEventsList.getCurrent().previous.next=allEventsList.getCurrent().next;
+                     if(allEventsList.getCurrent().next!=null)
+                         allEventsList.getCurrent().next.previous=allEventsList.getCurrent().previous;
+                 }
+         
+                 if(allEventsList.getCurrent().next==null)
+                     allEventsList.setCurrent(allEventsList.getHead());
+                 else
+                     allEventsList.setCurrent(allEventsList.getCurrent().next);
+                 }
+                 allEventsList.setCurrent(allEventsList.getCurrent().next);
+                }
+                     return;
+            }
+   
+
 }
 
 }
