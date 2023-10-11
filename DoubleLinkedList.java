@@ -204,5 +204,19 @@ if(((Event)(current.data)).getContactName().equalsIgnoreCase(criteriaChoise)||
                     current=tmp;
                 }   
         }
-    }   
+    }  
+public Contact searchByFirstName(String fName){
+        findFirst();
+        while(current!=null){
+        String name = ((Contact)(current.data)).getContactName();
+        String firstName = "";
+        firstName = name.substring( 0 , firstName.indexOf(" "));
+        if(fName.equalsIgnoreCase(firstName))
+        return (Contact)(current.data);
+        current=current.next;
+        }
+        return (Contact)current.data ;
+        
+        }
+    
 }
