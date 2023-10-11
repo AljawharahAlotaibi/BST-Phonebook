@@ -104,12 +104,11 @@ if(((Event)(current.data)).getContactName().equalsIgnoreCase(criteriaChoise)||
         }
     
     //deleting contact need to reWrite
-    public void remove(String name){
+    public Contact remove(String name){
         //When a contact is deleted all events with that contact are also deleted
-      current = head ;
+      findFirst();
         while(current!=null){
         if(((Contact)(current.data)).getContactName().equalsIgnoreCase(name)){
-             current.previous.next=current.next;
              if(current == head)
         {
             head=head.next;
@@ -127,26 +126,19 @@ if(((Event)(current.data)).getContactName().equalsIgnoreCase(criteriaChoise)||
             current=head;
         else
             current=current.next;
-            
-             //Now after deleting the Contact, we should delete the contact's event (event list)
-             current.removeEvents((Contact)(current.data));
+
              System.out.println(name + " was deleted successfully ");
-             return; 
+
+             //Now after deleting the Contact we should delete the contact's events (event list)
+             return ((Contact)current.data); 
         }
+
         current=current.next;
         }
             System.out.println(" Contact not found ");
+            return null;
 
        }
-
-   
-
-
-    public void removeEvents(Contact contact){
-        contact.getEventsList().head = null;
-        contact.getEventsList().current = null;
-
-    }
 
 
     public boolean addContact(T element)
