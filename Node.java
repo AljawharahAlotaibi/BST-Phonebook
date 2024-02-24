@@ -12,7 +12,7 @@ public class Node<T> {
 
     public Node (T val)
     {
-        //make sure the relation is aggregation
+      
         data = val;
         next=null;
         previous = null;
@@ -40,8 +40,5 @@ public class Node<T> {
 
     public void setPrevious(Node<T> previous) {
         this.previous = previous;
-    }
-    
-    //setters and getters
-    
-}
+    }    
+}//end class

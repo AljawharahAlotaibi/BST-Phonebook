@@ -1,33 +1,29 @@
-
-// The Contact class should implement the Comparable interface so that contacts can be sorted by name
-// when added to the linked list.
-
-//Is it in the phone book as user or in the contact as implementer?
-// • When you search for a contact by email address, address, or birthday, you should return all contacts
-// that have these values
-
-//implements Comparable
-public class Contact implements Comparable{
+public class Contact implements Comparable<String>{
     private String contactName;
-    //phone number string or int?
     private String phoneNumber;
     private String emailAddress;
     private String address;
     private String birthday;
     private String notes;
+    public DoubleLinkedList<Event> contactEventsOrAppointement = new DoubleLinkedList<Event>(); 
 
     public Contact()
     {
     }
-    public Contact(String contactName,String phoneNumber,String emailAddress,String address,String birthday, String notes)
-    {
-        this.contactName=contactName;
-        this.phoneNumber=phoneNumber;
-        this.emailAddress=emailAddress;
-        this.address=address;
-        this.birthday=birthday;
-        this.notes=notes;
+
+
+    public Contact(String contactName, String phoneNumber, String emailAddress, String address, String birthday,
+    String notes) {
+        this.contactName = contactName;
+        this.phoneNumber = phoneNumber;
+        this.emailAddress = emailAddress;
+        this.address = address;
+        this.birthday = birthday;
+        this.notes = notes;
+        contactEventsOrAppointement=new DoubleLinkedList<>();
+
     }
+
 
     public String getContactName() {
         return contactName;
@@ -47,9 +43,13 @@ public class Contact implements Comparable{
     public String getNotes() {
         return notes;
     }
-    @Override
-    public int compareTo(Object contact) {
-        return this.contactName.compareTo(((Contact) contact).getContactName());
-    }
-}
 
+    @Override
+    public int compareTo(String fullName) {
+           return this.contactName.compareTo(fullName);
+    }
+@Override
+    public String toString(){
+        return "Contact name:"+contactName+"\nPhone Number:"+phoneNumber+"\nEmail Adress:"+emailAddress+"\nAdress:"+address+"\nBirthday:"+birthday+"\nNotes:"+notes+"\n";
+    }
+}//end class
